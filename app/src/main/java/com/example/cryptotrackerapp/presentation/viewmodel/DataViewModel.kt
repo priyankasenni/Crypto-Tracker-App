@@ -6,30 +6,35 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.cryptotrackerapp.data.datasource.remote.ApiService
-import com.example.cryptotrackerapp.data.model.Currency
+import com.example.cryptotrackerapp.data.model.Data
 import kotlinx.coroutines.launch
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import retrofit2.create
 
-class CurrencyDataViewModel : ViewModel() {
-    private val _currencyList = MutableLiveData<List<Currency>>()
-    val currencyList : LiveData<List<Currency>> get() = _currencyList
+class DataViewModel : ViewModel() {
+    private val _dataList = MutableLiveData<List<Data>>()
+    val dataList : LiveData<List<Data>> get() = _dataList
 
     private val apiService: ApiService = Retrofit.Builder()
-        .baseUrl("")//baseurl
+        .baseUrl("https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/")
         .addConverterFactory(GsonConverterFactory.create())
         .build()
-        .create()
+        .create(ApiService::class.java)
 
     fun fetchData(){
         viewModelScope.launch {
             try {
-                val currencyList = apiService.getCurrencies()
-                _currencyList.postValue(currencyList)
+                Log.d("hhhh","")
+
+                val response = apiService.getCurrencies()
+                _dataList.postValue(response.data)
+                Log.d("Success Response", response.data.toString())
+
             }catch (e: Exception){
-                Log.d("Error Message",e.message.toString())
+                Log.d("Error Message", e.message.toString())
+
             }
         }
     }
+
 }

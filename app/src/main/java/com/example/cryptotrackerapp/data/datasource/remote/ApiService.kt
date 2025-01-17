@@ -1,9 +1,11 @@
 package com.example.cryptotrackerapp.data.datasource.remote
 
-import com.example.cryptotrackerapp.data.model.Currency
+import com.example.cryptotrackerapp.data.model.ApiResponse
 import retrofit2.http.GET
+import retrofit2.http.Headers
 
 interface ApiService {
-    @GET("") //Endpoint
-    suspend fun getCurrencies(): List<Currency>
+    @Headers("X-CMC_PRO_API_KEY:30305ead-5ba4-4215-8fcb-29d574e327a2")//Authentication header
+    @GET("latest") //Endpoint
+    suspend fun getCurrencies(): ApiResponse
 }
