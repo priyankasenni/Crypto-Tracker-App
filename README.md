@@ -38,5 +38,11 @@ The goal of the app is to present cryptocurrency data in an intuitive way while 
    ```bash
    git clone https://github.com/your-username/crypto-price-tracker.git
 
+## Demo
 
-<img src="screenshots/crypto_home_screen.png" width="300"/>
+<table>
+  <tr>
+    <td><img src="screenshots/crypto_home_screen.png" width="300px" /></td>
+    <td><img src="screenshots/demo.gif" width="300px" /></td>
+  </tr>
+</table>
