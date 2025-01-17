@@ -1,6 +1,6 @@
 package com.example.cryptotrackerapp.data.model
 
-data class Data(
+data class Currency(
     val id: Int,
     val name: String
 )
