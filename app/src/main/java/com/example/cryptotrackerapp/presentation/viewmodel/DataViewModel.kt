@@ -24,8 +24,6 @@ class DataViewModel : ViewModel() {
     fun fetchData(){
         viewModelScope.launch {
             try {
-                Log.d("hhhh","")
-
                 val response = apiService.getCurrencies()
                 _dataList.postValue(response.data)
                 Log.d("Success Response", response.data.toString())
