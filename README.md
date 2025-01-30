@@ -15,7 +15,7 @@ The goal of the app is to present cryptocurrency data in an intuitive way while 
 - **API Integration:** Data is fetched asynchronously from the [CoinMarketCap API](https://coinmarketcap.com/api/), using **Retrofit** for API calls.
 - **Jetpack Compose UI:** The app uses **Jetpack Compose** for building UI components in a declarative, reactive style.
 - **MVVM Architecture:** The application follows the **Model-View-ViewModel** architecture to separate concerns and facilitate testing.
-- **Coroutines for Async Operations:** Asynchronous tasks such as fetching data and performing background operations are handled by **Kotlin Coroutines**.
+- **Coroutines for FLow Operations:** Tasks such as fetching data and performing background operations are handled by **Kotlin Coroutines**.
 
 ## Tech Stack
 
@@ -25,12 +25,6 @@ The goal of the app is to present cryptocurrency data in an intuitive way while 
 - **Retrofit**: Used for network requests to fetch cryptocurrency data from the CoinMarketCap API.
 - **Coroutines**: Handles asynchronous operations like network calls efficiently without blocking the main thread.
 - **LiveData**: Used to observe data and update the UI reactively.
-- **Room (Future Feature)**: Potential integration of **Room** database for offline storage and improved data handling.
-
-## Future Enhancements
-
-- **Seamless Data Display:** I am working on improving the way the data is presented, making it smoother and more responsive as the data changes.
-- **Memory Optimization:** Future updates will include techniques for optimizing memory usage, especially when dealing with large amounts of dynamic data.
 
 ## Setup & Installation
 
