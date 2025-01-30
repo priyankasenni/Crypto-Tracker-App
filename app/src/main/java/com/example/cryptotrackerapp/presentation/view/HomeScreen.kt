@@ -16,9 +16,8 @@ import androidx.compose.material.Divider
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -30,11 +29,7 @@ import com.example.cryptotrackerapp.presentation.viewmodel.DataViewModel
 @Composable
 fun HomeScreen(dataViewModel: DataViewModel = viewModel()) {
 
-    val dataList by dataViewModel.dataList.observeAsState(emptyList())
-
-    LaunchedEffect(Unit) {
-        dataViewModel.fetchData()
-    }
+    val dataList by dataViewModel.dataList.collectAsState()
 
     Column(modifier = Modifier.fillMaxSize()) {
         Text(
@@ -80,7 +75,7 @@ fun HomeScreen(dataViewModel: DataViewModel = viewModel()) {
 
                     Column(horizontalAlignment = Alignment.End) {
                         Text(
-                            text = String.format("%.2f", data.quote.USD.price),
+                            text = String.format("$%.2f", data.quote.USD.price),
                             style = MaterialTheme.typography.bodyLarge
                         )
                         Text(
